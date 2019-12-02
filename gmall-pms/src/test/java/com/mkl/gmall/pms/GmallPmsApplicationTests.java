@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -19,6 +20,8 @@ public class GmallPmsApplicationTests {
     @Autowired
     BrandService brandService;
 
+    @Autowired
+    RedisTemplate redisTemplate;
     @Test
     public void contextLoads() {
         Product byId = productService.getById(1);
@@ -31,5 +34,10 @@ public class GmallPmsApplicationTests {
         brandService.save(brand);
         System.out.println("baocun ");
     }
+    @Test
+    public void testRedis(){
+        redisTemplate.opsForValue().set("hello","mkl");
+        System.out.println(redisTemplate.opsForValue().get("hello"));
 
+    }
 }

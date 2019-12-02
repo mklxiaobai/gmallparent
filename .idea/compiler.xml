@@ -10,10 +10,10 @@
         <module name="gmall-sms" />
         <module name="gmall-oms" />
         <module name="gmall-common" />
-        <module name="gmall-admin-web" />
-        <module name="gmall-api" />
-        <module name="gmall-pms" />
         <module name="gmall-ums" />
+        <module name="gmall-admin-web" />
+        <module name="gmall-pms" />
+        <module name="gmall-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
