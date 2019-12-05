@@ -8,6 +8,7 @@ import com.mkl.gmall.vo.product.PmsProductParam;
 import com.mkl.gmall.vo.product.PmsProductQueryParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -22,6 +23,7 @@ import java.util.List;
 @RestController
 @Api(tags = "PmsProductController", description = "商品管理")
 @RequestMapping("/product")
+@Slf4j
 public class PmsProductController {
     @Reference
     private ProductService productService;
@@ -31,6 +33,8 @@ public class PmsProductController {
     public Object create(@RequestBody PmsProductParam productParam,
                          BindingResult bindingResult) {
         //TODO 查询所有一级分类及子分类
+        log.debug("商品数据是{}",productParam);
+        productService.saveProduct(productParam);
         return new CommonResult().success(null);
     }
 
@@ -80,6 +84,7 @@ public class PmsProductController {
     public Object updatePublishStatus(@RequestParam("ids") List<Long> ids,
                                      @RequestParam("publishStatus") Integer publishStatus) {
         //TODO 批量上下架
+        productService.updatePublishStatus(ids,publishStatus);
         return new CommonResult().success(null);
     }
 

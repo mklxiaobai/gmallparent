@@ -1,5 +1,6 @@
 package com.mkl.gmall.pms.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mkl.gmall.pms.entity.ProductAttributeCategory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 

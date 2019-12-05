@@ -6,5 +6,22 @@
     <sql id="Base_Column_List">
         id, product_id, product_attribute_id, value
     </sql>
+    <select id="selectProductBaseAttrAndValue" resultType="com.mkl.gmall.to.es.EsProductAttributeValue">
+        SELECT pav.*,pa.`name`,pa.`type` FROM `pms_product_attribute_value` pav
+            LEFT JOIN `pms_product_attribute` pa
+            ON pa.`id`=pav.`product_attribute_id`
+        WHERE pav.product_id=#{id} AND pa.`type`=1
+    </select>
 
+    <!--List<ProductAttribute> selectProductSaleAttrName(Long id);-->
+    <select id="selectProductSaleAttrName" resultType="com.mkl.gmall.pms.entity.ProductAttribute">
+        SELECT pa.* FROM `pms_product_attribute` pa
+            WHERE pa.`product_attribute_category_id` =
+            (
+            SELECT pa.`product_attribute_category_id` FROM `pms_product_attribute_value` pav
+                LEFT JOIN `pms_product_attribute` pa
+                ON pa.`id`=pav.`product_attribute_id`
+            WHERE pav.product_id=#{id} AND pa.`type`=0 LIMIT 1
+            ) AND pa.`type`=0 ORDER BY pa.`sort` DESC
+    </select>
 </mapper>

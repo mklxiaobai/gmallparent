@@ -3,6 +3,7 @@ package com.mkl.gmall.admin.pms.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.mkl.gmall.pms.service.ProductAttributeService;
 import com.mkl.gmall.to.CommonResult;
+import com.mkl.gmall.vo.PageInfoVo;
 import com.mkl.gmall.vo.product.PmsProductAttributeParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -32,7 +33,8 @@ public class PmsProductAttributeController {
                           @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                           @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         //TODO 根据分类查询属性列表或参数列表
-        return new CommonResult().success(null);
+        PageInfoVo pageInfoVo = productAttributeService.getCategoryAttributes(cid,type,pageSize,pageNum);
+        return new CommonResult().success(pageInfoVo);
     }
 
     @ApiOperation("添加商品属性信息")

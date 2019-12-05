@@ -3,6 +3,7 @@ package com.mkl.gmall.admin.pms.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.mkl.gmall.pms.service.ProductAttributeCategoryService;
 import com.mkl.gmall.to.CommonResult;
+import com.mkl.gmall.vo.PageInfoVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -55,7 +56,8 @@ public class PmsProductAttributeCategoryController {
     @ResponseBody
     public Object getList(@RequestParam(defaultValue = "5") Integer pageSize, @RequestParam(defaultValue = "1") Integer pageNum) {
         //TODO 分页获取所有商品属性分类
-        return new CommonResult().success(null);
+        PageInfoVo pageInfoVo=productAttributeCategoryService.roductAttributeCategoryPageInfo(pageNum,pageSize);
+        return new CommonResult().success(pageInfoVo);
     }
 
     @ApiOperation("获取所有商品属性分类及其下属性【难度较高】")

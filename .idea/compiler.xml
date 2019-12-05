@@ -12,6 +12,7 @@
         <module name="gmall-common" />
         <module name="gmall-ums" />
         <module name="gmall-admin-web" />
+        <module name="es-demo" />
         <module name="gmall-pms" />
         <module name="gmall-api" />
       </profile>
@@ -20,6 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="es-demo" options="-parameters" />
       <module name="gmall-admin-web" options="-parameters" />
       <module name="gmall-mbg" options="-parameters" />
       <module name="gmall-oms" options="-parameters" />
