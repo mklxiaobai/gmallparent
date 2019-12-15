@@ -2,6 +2,7 @@ package com.mkl.gmall.pms.service;
 
 import com.mkl.gmall.pms.entity.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mkl.gmall.to.es.EsProduct;
 import com.mkl.gmall.vo.PageInfoVo;
 import com.mkl.gmall.vo.product.PmsProductParam;
 import com.mkl.gmall.vo.product.PmsProductQueryParam;
@@ -25,4 +26,8 @@ public interface ProductService extends IService<Product> {
     void saveProduct(PmsProductParam productParam);
 
     void updatePublishStatus(List<Long> ids, Integer publishStatus);
+
+    EsProduct productAllInfo(Long id);
+
+    EsProduct produSkuInfo(Long id);
 }

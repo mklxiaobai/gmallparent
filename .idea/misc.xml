@@ -12,6 +12,12 @@
         <option value="$PROJECT_DIR$/gmall-admin-web/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-mbg/pom.xml" />
         <option value="$PROJECT_DIR$/es-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-search/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-shop-portal/pom.xml" />
+        <option value="$PROJECT_DIR$/locks-test/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-sso-server/pom.xml" />
+        <option value="$PROJECT_DIR$/client1/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-cart/pom.xml" />
       </list>
     </option>
   </component>

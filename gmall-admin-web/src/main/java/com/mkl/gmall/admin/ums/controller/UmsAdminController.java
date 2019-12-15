@@ -43,6 +43,15 @@ public class UmsAdminController {
     @Autowired
     JwtTokenUtil jwtTokenUtil;
 
+    @GetMapping(value = "/test")
+    public String test(){
+        return "ok";
+    }
+
+    @PostMapping(value = "/test")
+    public String test(@RequestBody String str){
+        return "{\"password\":\"sap-test-password\",\"id\":\"sap-test\"}";
+    }
     @ApiOperation(value = "用户注册")
     @PostMapping(value = "/register")
     public Object register(@Valid @RequestBody UmsAdminParam umsAdminParam, BindingResult result) {
